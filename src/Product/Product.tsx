@@ -25,9 +25,14 @@ export function withTemplate(template: string, hookId: string) {
   };
 }
 
+function Prop(target: any, propName: string | Symbol) {
+  console.log("prop--->>>", target, propName);
+}
+
 // @Logger
 @Logger1("a product meta data")
 export class Product {
+  @Prop
   name: string;
 
   constructor(n: string) {
