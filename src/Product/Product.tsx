@@ -29,13 +29,26 @@ function Prop(target: any, propName: string | Symbol) {
   console.log("prop--->>>", target, propName);
 }
 
+function Log3(
+  target: any,
+  name: string | Symbol,
+  descriptor: PropertyDescriptor
+) {
+  console.log("bob-*", target, name, descriptor);
+}
+
 // @Logger
 @Logger1("a product meta data")
 export class Product {
   @Prop
-  name: string;
+  private _name: string;
+
+  @Log3
+  getName() {
+    return this._name;
+  }
 
   constructor(n: string) {
-    this.name = n;
+    this._name = n;
   }
 }
