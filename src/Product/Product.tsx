@@ -29,26 +29,28 @@ function Prop(target: any, propName: string | Symbol) {
   console.log("prop--->>>", target, propName);
 }
 
-function Log3(
-  target: any,
-  name: string | Symbol,
-  descriptor: PropertyDescriptor
-) {
-  console.log("bob-*", target, name, descriptor);
-}
-
 // @Logger
 @Logger1("a product meta data")
 export class Product {
   @Prop
-  private _name: string;
-
-  @Log3
-  getName() {
-    return this._name;
-  }
+  name: string;
 
   constructor(n: string) {
-    this._name = n;
+    this.name = n;
   }
 }
+
+/** example to use dynamic types */
+export enum CONSTANTS {
+  X = "abc",
+  Y = "xyz"
+}
+
+export type ConstantType = CONSTANTS.X | CONSTANTS.Y;
+
+export type AccessTokenData = {
+  [prop in ConstantType]: string;
+};
+
+const somevalue: AccessTokenData = { abc: "hello", xyz: "wassup" };
+console.log(somevalue);
