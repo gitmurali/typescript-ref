@@ -31,3 +31,13 @@ type Book = {
 type ValuesOf<T> = T[keyof T];
 
 type R = ValuesOf<Book>;
+//************************* */
+
+/*** to recommend a value and fallback to string */
+
+type SomeString = (string & {}) | "red" | "green";
+
+let b: SomeString = "red"; // recommends red or green first
+let c: SomeString = "any string as fallback";
+
+/*** end to recommend a value and fallback to string */
