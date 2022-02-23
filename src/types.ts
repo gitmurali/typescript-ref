@@ -41,3 +41,21 @@ let b: SomeString = "red"; // recommends red or green first
 let c: SomeString = "any string as fallback";
 
 /*** end to recommend a value and fallback to string */
+
+/******** safe-get-functions *********/
+const someenv = {
+  server: "url",
+  port: 3000
+};
+
+type ENV = typeof someenv;
+
+function getValue<K extends keyof ENV>(s: K): ENV[K] {
+  return (someenv as any)[s];
+}
+
+const server = getValue("server");
+const port = getValue("port");
+const pport = getValue("pport"); // narrowed it down to server or port
+console.log(server, port);
+//****************************************/
