@@ -15,3 +15,7 @@ a.age = 10;
 type Person2 = Required<Person>;
 let a: Person2;
 /********* end of Readonly **********/
+
+/******* Pick ***********/
+/** it contains only what you pick. */
+type P = Pick<Person, "name" | "age">;
