@@ -18,9 +18,9 @@ getSampleData(0);
 /********** filtered out keys based on type of properties */
 type Book = {
   pages: number;
-  fontSize: number;
+  fontSize?: number;
   name: string;
-  author: string;
+  author?: string;
 };
 
 type T = {
@@ -34,4 +34,8 @@ type FilterKeys<T, V> = {
 
 type X = FilterKeys<Book, string>;
 type Y = FilterKeys<Book, number>;
+
+// type StringKeys = keyof {
+//   [K in keyof Book as Book[K] extends string ? K : never]-? : any
+// }
 /********** end of filtered out keys based on type of properties */
