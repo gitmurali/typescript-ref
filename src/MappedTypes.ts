@@ -53,6 +53,12 @@ type AllReturnTypes<T extends { [n: string]: (...a: any) => any }> = {
 
 type NewEnv = AllReturnTypes<EnvGetters>;
 
+// to make all props readonly..
 type RecordReadonly = {
   readonly [P in keyof EnvGetters]: ReturnType<EnvGetters[P]>;
+};
+
+// to make all props readonly and optional..
+type RecordReadonlyAndOptions = {
+  readonly [P in keyof EnvGetters]?: ReturnType<EnvGetters[P]>;
 };
