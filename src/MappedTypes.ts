@@ -42,6 +42,13 @@ type Env = {
 // };
 
 // approach 2
-type Record1 = {
-  [P in keyof EnvGetters]: ReturnType<EnvGetters[P]>;
+// type Record1 = {
+//   [P in keyof EnvGetters]: ReturnType<EnvGetters[P]>;
+// };
+
+//approach 3
+type AllReturnTypes<T extends { [n: string]: (...a: any) => any }> = {
+  [P in keyof T]: ReturnType<T[P]>;
 };
+
+type NewEnv = AllReturnTypes<EnvGetters>;
