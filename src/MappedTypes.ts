@@ -19,3 +19,22 @@ let a: Person2;
 /******* Pick ***********/
 /** it contains only what you pick. */
 type P = Pick<Person, "name" | "age">;
+
+/************record***********/
+type EnvGetters = {
+  server: () => string;
+  port: () => number;
+};
+
+type Env = {
+  server: string;
+  port: number;
+};
+
+// type Record1 = {
+//   [P in "name" | "age" | "company"]: boolean;
+// };
+
+type Record1 = {
+  [P in keyof EnvGetters]: boolean;
+};
