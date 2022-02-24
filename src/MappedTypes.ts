@@ -20,6 +20,11 @@ let a: Person2;
 /** it contains only what you pick. */
 type P = Pick<Person, "name" | "age">;
 
+/************ ReturnType*******/
+type R = ReturnType<() => string>;
+let b: R = "murali";
+/************ end of ReturnType*******/
+
 /************record***********/
 type EnvGetters = {
   server: () => string;
@@ -31,10 +36,12 @@ type Env = {
   port: number;
 };
 
+// approach 1
 // type Record1 = {
 //   [P in "name" | "age" | "company"]: boolean;
 // };
 
+// approach 2
 type Record1 = {
-  [P in keyof EnvGetters]: boolean;
+  [P in keyof EnvGetters]: ReturnType<EnvGetters[P]>;
 };
