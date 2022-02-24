@@ -62,3 +62,8 @@ type RecordReadonly = {
 type RecordReadonlyAndOptions = {
   readonly [P in keyof EnvGetters]?: ReturnType<EnvGetters[P]>;
 };
+
+// -readonly
+type RecordMinusReadOnly = {
+  -readonly [P in keyof EnvGetters]?: ReturnType<EnvGetters[P]>;
+};
