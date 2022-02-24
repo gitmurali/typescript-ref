@@ -26,4 +26,12 @@ type Book = {
 type T = {
   [P in keyof Book]: Book[P] extends string ? P : never;
 }[keyof Book];
+
+// generic version of above type
+type FilterKeys<T, V> = {
+  [P in keyof T]: T[P] extends V ? P : never;
+}[keyof T];
+
+type X = FilterKeys<Book, string>;
+type Y = FilterKeys<Book, number>;
 /********** end of filtered out keys based on type of properties */
