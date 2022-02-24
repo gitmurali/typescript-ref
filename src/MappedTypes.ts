@@ -52,3 +52,7 @@ type AllReturnTypes<T extends { [n: string]: (...a: any) => any }> = {
 };
 
 type NewEnv = AllReturnTypes<EnvGetters>;
+
+type RecordReadonly = {
+  readonly [P in keyof EnvGetters]: ReturnType<EnvGetters[P]>;
+};
