@@ -14,3 +14,16 @@ getSampleData("string");
 getSampleData("number");
 getSampleData(0);
 /************** end of conditional based return type ****************/
+
+/********** filtered out keys based on type of properties */
+type Book = {
+  pages: number;
+  fontSize: number;
+  name: string;
+  author: string;
+};
+
+type T = {
+  [P in keyof Book]: Book[P] extends string ? P : never;
+}[keyof Book];
+/********** end of filtered out keys based on type of properties */
