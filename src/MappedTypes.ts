@@ -67,3 +67,10 @@ type RecordReadonlyAndOptions = {
 type RecordMinusReadOnly = {
   -readonly [P in keyof EnvGetters]?: ReturnType<EnvGetters[P]>;
 };
+
+// NonNullable - removes nul or undefined.
+type NotNullOrUndefined = NonNullable<(() => string) | undefined>;
+
+type RecordReadonlyAndOptionsNonNullable = {
+  readonly [P in keyof EnvGetters]?: ReturnType<NonNullable<EnvGetters[P]>>;
+};
