@@ -46,7 +46,7 @@ export enum CONSTANTS {
   Y = "xyz"
 }
 
-export type ConstantType = CONSTANTS.X | CONSTANTS.Y;
+export type ConstantType = CONSTANTS;
 
 export type AccessTokenData = {
   [prop in ConstantType]: string;
