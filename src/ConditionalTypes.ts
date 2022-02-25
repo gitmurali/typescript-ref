@@ -45,6 +45,8 @@ type Shape =
   | { height: number; color: string }
   | { height: number; fill: string };
 
+type FilledShapes = Extract<Shape, { color: any }>;
+
 type LooseBoolean = "yes" | "no" | 0 | 1;
 
 type StringLooseBoolean = Extract<LooseBoolean, string>;
