@@ -39,3 +39,13 @@ type Y = FilterKeys<Book, number>;
 //   [K in keyof Book as Book[K] extends string ? K : never]-? : any
 // }
 /********** end of filtered out keys based on type of properties */
+
+type Shape =
+  | { radius: number; color: string }
+  | { height: number; color: string }
+  | { height: number; fill: string };
+
+type LooseBoolean = "yes" | "no" | 0 | 1;
+
+type StringLooseBoolean = Extract<LooseBoolean, string>;
+type NumberLooseBoolean = Exclude<LooseBoolean, string>;
