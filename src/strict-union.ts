@@ -31,11 +31,11 @@ type AddUndefinedProps<TOriginalUnion, TUnionConstituent> = Partial<
 
 // 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻
 
-type StrictUnion<T> = T extends T
-  ? T & AddUndefinedProps<OriginalPerson, T>
+type StrictUnion<T, TOriginal = T> = T extends T
+  ? T & AddUndefinedProps<TOriginal, T>
   : never;
 
-type Person = StrictUnion<OriginalPerson>;
+type Person = StrictUnion<OriginalPerson, OriginalPerson>;
 let o: Person = {
   name: "",
   field: "",
