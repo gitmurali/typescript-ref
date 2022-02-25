@@ -50,4 +50,6 @@ type FilledShapes = Extract<Shape, { color: any }>;
 type LooseBoolean = "yes" | "no" | 0 | 1;
 
 type StringLooseBoolean = Extract<LooseBoolean, string>;
+// extract inline
+type StringLooseBooolean3 = LooseBoolean extends string ? LooseBoolean : never;
 type NumberLooseBoolean = Exclude<LooseBoolean, string>;
