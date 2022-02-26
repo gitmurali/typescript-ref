@@ -10,6 +10,10 @@ type EnvData1 = {
   maxRequestsPerMinute: number;
 };
 
+type EnvData2 = {
+  [P in keyof XEnv as ConvertToCamelcase<RemovePrefix<P>>] : XEnv[P]
+}
+
 type AddPrefix<P extends string> = `X_${P}`;
 
 // type R = AddPrefix<"IS_ADMIN">
@@ -17,3 +21,10 @@ type AddPrefix<P extends string> = `X_${P}`;
 type RemovePrefix<P extends string> = P extends AddPrefix<infer R> ? R : never;
 
 type Z = RemovePrefix<"X_IS_ADMIN">
+
+type RemoveUnderscores<T extends string> = 
+    T extends `${infer H}_${infer T}` ? `${Capitalize<Lowercase<H>>}${RemoveUnderscores<T>}` : Capitalize<Lowercase<T>>
+
+type ConvertToCamelcase<T> = T extends `${infer H}_${infer T}` ? `${Lowercase<H>}${RemoveUnderscores<T>}` : never
+
+type K = ConvertToCamelcase<"MAX_REQUESTS_PER_MINUTE">
