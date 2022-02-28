@@ -4,6 +4,6 @@ interface Person {
   aliases: string[];
 }
 
-type MakeOptional<T, K extends keyof T> = Partial<Pick<T, K>>;
+type MakeOptional<T, K extends keyof T> = Partial<Pick<T, K>> & Omit<T, K>;
 
-type PersonWithSomeOptional = MakeOptional<Person, "age" | "name" | "aliases">;
+type PersonWithSomeOptional = MakeOptional<Person, "age" | "name">;
