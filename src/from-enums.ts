@@ -10,4 +10,3 @@ export type AccessTokenData = {
 };
 
 const somevalue: AccessTokenData = { abc: "hello", xyz: "wassup" };
-console.log(somevalue);
