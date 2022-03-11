@@ -53,3 +53,17 @@ type StringLooseBoolean = Extract<LooseBoolean, string>;
 // extract inline
 type StringLooseBooolean3 = LooseBoolean extends string ? LooseBoolean : never;
 type NumberLooseBoolean = Exclude<LooseBoolean, string>;
+
+class Grill {
+  startGlass() {}
+  stopGas() {}
+}
+
+class Oven {
+  setTemperature(degrees: number) {}
+}
+
+type CookingDevice<T> = T extends "grill" ? Grill : Oven;
+
+let device1: CookingDevice<"grill">;
+let device2: CookingDevice<"oven">;
