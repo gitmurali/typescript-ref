@@ -21,3 +21,13 @@ type WindowProps1 = PickProperties<
   "document" | "alert" | "btoa" | "setInterval",
   Window
 >;
+
+let d: { [k: string]: Date } = {};
+
+let record: { [k in "endOfWeek" | "startOfWeek"]: Date } = {
+  endOfWeek: new Date(),
+  startOfWeek: new Date()
+};
+
+record = d; // not fine
+d = record; // fine
