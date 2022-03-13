@@ -13,11 +13,11 @@ type WindowProps = PickWindowProperties<
 >;
 
 // make it more generic
-type PickProperties<ValueType, Keys extends keyof ValueType> = {
+type PickProperties<Keys extends keyof ValueType, ValueType> = {
   [key in Keys]: ValueType[key];
 };
 
 type WindowProps1 = PickProperties<
-  Window,
-  "document" | "alert" | "btoa" | "setInterval"
+  "document" | "alert" | "btoa" | "setInterval",
+  Window
 >;
