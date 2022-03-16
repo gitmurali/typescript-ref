@@ -22,3 +22,13 @@ try {
 
 // unknown is like I don't know yet
 // any is like I don't care
+
+// unknown which is the type-safe counterpart of any
+let abc: any = 10; // We can assign anything to any
+let xyz: unknown = 20; // We can assign anything to unknown just like any
+
+let abc1: string = abc; // Any is assignable to anything
+let xyz1: string = xyz; // Invalid; we can't assign xyz to any other type (without an explicit assertion)
+
+abc.method(); // Ok; anything goes with any
+xyz.method(); // Not ok; we don't know anything about this variable
