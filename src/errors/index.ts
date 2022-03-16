@@ -7,19 +7,34 @@ const num1: number = 5;
 // @ts-ignore is like ignore any kind of error.
 // @ts-expect-error is like expect error and ignore that error
 
+//step 1
 function somethingRisky() {}
-// https://stackoverflow.com/questions/51439843/unknown-vs-any
+
+//step2
+function isError(error: any): error is Error {
+  return error instanceof Error;
+}
+
+//step3
+function assertIsError(err: any): asserts err is Error {
+  if (!(err instanceof Error)) throw new Error(`Not an error: ${err}`);
+}
+
 try {
   somethingRisky();
 } catch (err) {
   //err: unknown I don't know yet i have to figure it out yet.
-  if (err instanceof Error) {
-    console.log(err.stack);
-  } else {
-    console.log(err);
-  }
+  // if (isError(err)) {
+  //   console.log(err.stack);
+  // } else {
+  //   console.log(err);
+  // }
+
+  assertIsError(err); // either throw here
+  console.log(err.stack); // or log this out
 }
 
+// https://stackoverflow.com/questions/51439843/unknown-vs-any
 // unknown is like I don't know yet
 // any is like I don't care
 
