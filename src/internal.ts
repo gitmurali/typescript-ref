@@ -35,7 +35,7 @@ export function sum3(a: number, b: number, c: number): number {
  * @param a - first number
  * @param b - second number
  *
- * @internal
+ * @internal // this will be skipped from the types file.
  */
 export function sum2(a: number, b: number): number {
   const sum = a + b;
