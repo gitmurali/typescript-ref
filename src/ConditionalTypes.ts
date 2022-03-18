@@ -6,7 +6,11 @@ type Ret<K> = K extends string ? string : number;
 type R1 = Ret<string>;
 type R2 = Ret<number>;
 
-function getSampleData<K extends string | number>(value: K): Ret<K> {
+/**
+ * get some sample data
+ * @param {K} value - some string
+ */
+export function getSampleData<K extends string | number>(value: K): Ret<K> {
   return (value === "string" ? "test data" : 0) as Ret<K>;
 }
 
