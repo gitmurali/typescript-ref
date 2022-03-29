@@ -47,3 +47,27 @@ let xyz1: string = xyz; // Invalid; we can't assign xyz to any other type (witho
 
 abc.method(); // Ok; anything goes with any
 xyz.method(); // Not ok; we don't know anything about this variable
+
+
+
+
+// different ways to throw error
+
+//1
+} catch (error) {
+  throw new Error(400);
+}
+
+//2
+} catch (error) {
+  throw 400;
+}
+
+//3
+} catch (error) {
+  return Promise.reject(new Error(400));
+}
+
+//4
+return Promise.reject<A>(400 /*or Error*/ );
+
