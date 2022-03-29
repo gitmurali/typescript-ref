@@ -38,3 +38,5 @@ class Modal4 implements IModal {
 const modal5 = new Modal4();
 const modal6: Modal4 = new Modal4();
 console.log(modal6);
+
+const modal7 = <IModal>{}; // another way
