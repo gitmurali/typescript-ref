@@ -16,4 +16,16 @@ enum Colors2 {
 let green = Colors2[1];
 let red1 = Colors2[0];
 
-console.log(green, red1);
+type Colors3 = keyof typeof Colors2;
+
+type Colors4 = {
+  [P in Colors3]: string;
+};
+
+let obj: Colors4 = {
+  RED: "red",
+  GREEN: "green",
+  BLUE: "blue"
+};
+
+console.log(green, red1, obj);
