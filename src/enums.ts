@@ -29,3 +29,4 @@ let obj: Colors4 = {
 };
 
 console.log(green, red1, obj);
+
