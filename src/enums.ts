@@ -88,3 +88,19 @@ const OptionObject: OptionRequirements = {
   "TWO" : {someBool: true, someString: 'string'},
   "THREE" : {someBool: true, someString: 'string'},
 }
+
+
+
+
+enum MyEnum {
+  A = "a",
+  B = "b",
+  C = "c"
+}
+
+var MyEnum
+(function(){
+  MyEnum["A"] = "a";
+  MyEnum["B"] = "b";
+  MyEnum["C"] = "c";
+})(MyEnum || (MyEnum = {}))
