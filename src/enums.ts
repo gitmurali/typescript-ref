@@ -39,3 +39,26 @@ enum Vehicle {
 console.log(Object.keys(Vehicle));
 console.log(Object.entries(Vehicle));
 console.log(Object.values(Vehicle));
+
+/********************** ***************************/
+
+
+export enum MESSAGE_TYPE {
+  INFO = 1,
+  SUCCESS = 2,
+  WARNING = 3,
+  ERROR = 4,
+};
+
+// turns into 
+
+{
+  '1': 'INFO',
+  '2': 'SUCCESS',
+  '3': 'WARNING',
+  '4': 'ERROR',
+  INFO: 1,
+  SUCCESS: 2,
+  WARNING: 3,
+  ERROR: 4
+}
