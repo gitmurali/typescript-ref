@@ -62,3 +62,29 @@ export enum MESSAGE_TYPE {
   WARNING: 3,
   ERROR: 4
 }
+
+
+/********************* enums *****************/
+
+enum Option {
+  ONE = 'one',
+  TWO = 'two',
+  THREE = 'three'
+}
+
+interface OptionRequirement {
+  someBool: boolean;
+  someString: string;
+}
+
+type OptionType = keyof typeof Option
+
+type OptionRequirements  = {
+  [key in OptionType]: OptionRequirement;
+}
+
+const OptionObject: OptionRequirements = {
+  "ONE" : {someBool: true, someString: 'string'},
+  "TWO" : {someBool: true, someString: 'string'},
+  "THREE" : {someBool: true, someString: 'string'},
+}
