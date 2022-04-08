@@ -30,3 +30,12 @@ let obj: Colors4 = {
 
 console.log(green, red1, obj);
 
+enum Vehicle {
+  Car = "car",
+  Bike = "bike",
+  Truck = "truck"
+}
+
+console.log(Object.keys(Vehicle));
+console.log(Object.entries(Vehicle));
+console.log(Object.values(Vehicle));
