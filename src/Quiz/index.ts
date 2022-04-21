@@ -31,6 +31,11 @@ second = new String("abc");
 
 // In what order will the animal names below be printed to the console?
 // dog, cat, elephant, giraffe, zebra, koala, lion, moose
+
+// Answer: dog, cat, elephant, giraffe, zebra, koala, lion, moose;
+
+//Are you surprised that giraffe and zebra happen so early? Remember that Promise executors are invoked synchronously in the Promise constructor
+//Are you surprised that lion happens so late? Remember that a resolve is not a return. Just because a Promise has resolved, doesn’t mean the corresponding .then (or await is called immediately)
 function getData() {
   console.log("elephant");
   const p = new Promise((resolve) => {
