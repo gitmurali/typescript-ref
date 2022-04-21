@@ -17,3 +17,12 @@ console.log(val);
  *   '4': 'o'
  * }
  */
+
+//example 3
+// @errors: 2322 2320
+let first: string & number; // results in never as primitive types a string can never extend number or vice versa in this union type
+let second: String & Number; //
+
+first = "abc";
+second = "abc";
+second = new String("abc");
